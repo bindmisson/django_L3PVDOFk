@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload</title>
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'accounts/css/main.css' %}">
+</head>
+<body>
+    {% load mathfilters %}
+    <div class="container" id="body-container">
+        <div class="navbar-container justify-content-between">
+            <h1 class="text-xl bold ml-2">CSV Website //</h1>
+            <div class="profile_txt">
+                <div class="welcome-txt">
+                    <h3>Welcome, {{ request.user.first_name }}</h3>
+                </div>
+                <div class="action-text">
+                    <a href="{% url 'logout' %}">Logout</a>
+                </div>
+            </div>
+        </div>
+        <div class="main-container">
+            <div class="container" id="left-box">
+                {% if messages %}
+                    {% for message in messages %}
+                        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                        <div class="container msg-box error m-0 mb-2 items-center">
+                            <p>{{ message }}</p>
+                        </div>
+                        {% endif %}
+                        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                        <div class="container msg-box success m-0 mb-2 items-center">
+                            <p>{{ message }}</p>
+                        </div>
+                        {% endif %}
+                    {% endfor %}    
+                {% endif %}
+                <div class="container" id="upload-box">
+                    <div class="container" id="title-box">
+                        <h3>Upload File</h3>
+                    </div>
+                    <form action="" enctype="multipart/form-data" method="POST" class="dropzone">
+                        {% csrf_token %}
+                        <div class="drop-zone" id="drop-zone-box">
+                            <div class="btn-close" id="disp-off">
+                                <span>×</span>
+                            </div>
+                            <div class="thumbnail-no-select">
+                                <div class="thumbnail">
+                                    <img src="{% static 'functions/svg/file_icon.svg' %}" alt="" srcset="">
+                                </div>
+                                <small>Please upload a valid CSV file</small>
+                            </div>
+                            <div class="thumbnail-select disp-off">
+                                <div class="thumbnail">
+                                    <div id="thumbnail-icon">
+                                        <img src="{% static 'functions/svg/file_icon.svg' %}" alt="" srcset="">      
+                                    </div>
+                                </div>
+                                <small><p class="txt-center" id="file-name">test.csv</p></small>
+                            </div> 
+                            <input type="file" name="upload_field" accept=".csv" id="" class="drop-zone__input">       
+                        </div>
+                        <button type="submit" class="button" id="uploadBtn">Upload</button>
+                    </form>
+                </div>
+            </div>
+            <div class="container" id="upload-history-box">
+                <div class="container" id="title-box">
+                    <h3>Upload History</h3>
+                </div>
+                <div class="window">
+                    <table class="table" id="table" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Size</th>
+                                <th>Uploaded on</th>
+                                <th>Download</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in records %}
+                                <tr>
+                                    <td>{{ i.file_name }}</td>
+                                    <td>{{ i.file_size|div:1000 }} KB</td>
+                                    <td>{{ i.uploaded_on }}</td>
+                                    <td><a href="{% url 'download' slug=i.file_uid %}" class="generic-button-download">download</a></td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="form-box pos-center" id="upload-box">
+        <form action="" enctype="multipart/form-data" method="POST" class="dropzone">
+            {% csrf_token %}
+            <h3 class="display-title display-4 txt-center">Upload</h3>
+            <hr>
+            <div class="form-group">
+                <div class="drop-zone" id="drop-zone-box">-->
+                    <!--<span class="drop-zone-txt"><img src="{% static 'accounts/svg/file_icon.svg' %}" alt="upload" srcset=""></span>-->
+                    <!--<div class="file disp-off">
+                        <div class="thumb-container">
+                            <div class="thumbnail-box">
+                                <span class="close-btn"><img src="{% static 'accounts/svg/close-btn.svg' %}" alt="remove" srcset=""></span>
+                                <div class="thumbnail-icn1"><img src="{% static 'accounts/svg/file_icon.svg' %}" alt="upload" srcset=""></div>
+                            </div>
+                            <div>
+                                <small><p class="txt-center" id="file-name">test.csv</p></small>
+                            </div> 
+                        </div>
+                    </div>
+                    <div class="thumbnail">
+                        <div class="thumbnail-icn"><img src="{% static 'accounts/svg/file_icon.svg' %}" alt="upload" srcset="" class="v-align"></div>
+                    </div>
+                    <input type="file" name="csv-file" accept=".csv" id="" class="drop-zone__input">
+                </div>
+            </div>
+            <button type="submit" class="button" id="uploadBtn">Upload</button>
+            <hr>
+            <small><p class="txt-center">Please upload a valid CSV file.</p></small>
+        </form>
+    </div>-->
+    <div class="developer">
+        <small><p class="txt-center">Made with ❤️ by AlphaWare Labs</p></small>
+    </div>
+    <script src="{% static 'functions/js/upload.js' %}" defer></script>
+</body>
+</html>

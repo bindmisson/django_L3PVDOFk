@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Project</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> 
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'accounts/css/main.css' %}">
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="flex flex-column justify-content-center w-fit h-screen m-auto">
+        <div class="flex align-items-center">
+            <h1 class="text-3xl bold">CSV Website</h1>
+            <p class="text-3xl font-900 ml-3">//</p>
+        </div>
+        <p class="mx-auto">Upload and manage your CSV files.</p>
+        <div class="flex justify-items-end">
+            <a href="{% url 'login' %}" class="generic-button">Login</a>
+            <a href="{% url 'register' %}" class="generic-button">Register</a>
+        </div>
+    </div>
+    <div class="developer">
+        <small><p class="txt-center">Made with ❤️ by AlphaWare Labs</p></small>
+    </div>
+    <script src="{% static 'accounts/js/particles.min.js' %}"></script>
+    <script>
+        particlesJS.load('particles-js', "https://s3-django-ejbm8gb.s3.us-east-2.amazonaws.com/static/accounts/assets/particles.json", function() {
+            console.log('callback - particles.js config loaded');
+        });
+    </script>
+</body>
+</html>
