@@ -7,7 +7,7 @@
     <title>CSV Project</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> 
     {% load static %}
-    <link rel="stylesheet" href="{% static 'accounts/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'static/accounts/css/main.css' %}">
 </head>
 <body>
     <div id="particles-js"></div>
@@ -22,12 +22,9 @@
             <a href="{% url 'register' %}" class="generic-button">Register</a>
         </div>
     </div>
-    <div class="developer">
-        <small><p class="txt-center">Made with ❤️ by AlphaWare Labs</p></small>
-    </div>
-    <script src="{% static 'accounts/js/particles.min.js' %}"></script>
+    <script src="{% static 'static/accounts/js/particles.min.js' %}"></script>
     <script>
-        particlesJS.load('particles-js', "https://s3-django-ejbm8gb.s3.us-east-2.amazonaws.com/static/accounts/assets/particles.json", function() {
+        particlesJS.load('particles-js', "https://csv-finance-uploads.s3.amazonaws.com/static/static/accounts/assets/particles.json", function() {
             console.log('callback - particles.js config loaded');
         });
     </script>

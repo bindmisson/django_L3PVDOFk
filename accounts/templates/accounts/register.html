@@ -6,7 +6,7 @@
     <title>Register</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> 
     {% load static %}
-    <link rel="stylesheet" href="{% static 'accounts/css/main.css' %}">  
+    <link rel="stylesheet" href="{% static 'static/accounts/css/main.css' %}">  
 </head>
 <body>
     <div class="flex flex-column justify-content-center w-fit h-screen m-auto">
@@ -48,9 +48,6 @@
                 <small><p class="txt-center">Already have an account? <a href="{% url 'login' %}">Sign In</a></p></small>
             </form>
         </div>
-    </div>
-    <div class="developer">
-        <small><p class="txt-center">Made with ❤️ by AlphaWare Labs</p></small>
     </div>
 </body>
 </html>

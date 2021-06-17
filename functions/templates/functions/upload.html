@@ -6,7 +6,7 @@
     <title>Upload</title>
     <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
     {% load static %}
-    <link rel="stylesheet" href="{% static 'accounts/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'static/accounts/css/main.css' %}">
 </head>
 <body>
     {% load mathfilters %}
@@ -50,14 +50,14 @@
                             </div>
                             <div class="thumbnail-no-select">
                                 <div class="thumbnail">
-                                    <img src="{% static 'functions/svg/file_icon.svg' %}" alt="" srcset="">
+                                    <img src="{% static 'static/functions/svg/file_icon.svg' %}" alt="" srcset="">
                                 </div>
                                 <small>Please upload a valid CSV file</small>
                             </div>
                             <div class="thumbnail-select disp-off">
                                 <div class="thumbnail">
                                     <div id="thumbnail-icon">
-                                        <img src="{% static 'functions/svg/file_icon.svg' %}" alt="" srcset="">      
+                                        <img src="{% static 'static/functions/svg/file_icon.svg' %}" alt="" srcset="">      
                                     </div>
                                 </div>
                                 <small><p class="txt-center" id="file-name">test.csv</p></small>
@@ -97,40 +97,6 @@
             </div>
         </div>
     </div>
-
-    <!--<div class="form-box pos-center" id="upload-box">
-        <form action="" enctype="multipart/form-data" method="POST" class="dropzone">
-            {% csrf_token %}
-            <h3 class="display-title display-4 txt-center">Upload</h3>
-            <hr>
-            <div class="form-group">
-                <div class="drop-zone" id="drop-zone-box">-->
-                    <!--<span class="drop-zone-txt"><img src="{% static 'accounts/svg/file_icon.svg' %}" alt="upload" srcset=""></span>-->
-                    <!--<div class="file disp-off">
-                        <div class="thumb-container">
-                            <div class="thumbnail-box">
-                                <span class="close-btn"><img src="{% static 'accounts/svg/close-btn.svg' %}" alt="remove" srcset=""></span>
-                                <div class="thumbnail-icn1"><img src="{% static 'accounts/svg/file_icon.svg' %}" alt="upload" srcset=""></div>
-                            </div>
-                            <div>
-                                <small><p class="txt-center" id="file-name">test.csv</p></small>
-                            </div> 
-                        </div>
-                    </div>
-                    <div class="thumbnail">
-                        <div class="thumbnail-icn"><img src="{% static 'accounts/svg/file_icon.svg' %}" alt="upload" srcset="" class="v-align"></div>
-                    </div>
-                    <input type="file" name="csv-file" accept=".csv" id="" class="drop-zone__input">
-                </div>
-            </div>
-            <button type="submit" class="button" id="uploadBtn">Upload</button>
-            <hr>
-            <small><p class="txt-center">Please upload a valid CSV file.</p></small>
-        </form>
-    </div>-->
-    <div class="developer">
-        <small><p class="txt-center">Made with ❤️ by AlphaWare Labs</p></small>
-    </div>
-    <script src="{% static 'functions/js/upload.js' %}" defer></script>
+    <script src="{% static 'static/functions/js/upload.js' %}" defer></script>
 </body>
 </html>
