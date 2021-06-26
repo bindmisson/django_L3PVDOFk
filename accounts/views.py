@@ -57,7 +57,3 @@ def registerView(request):
         return render(request, 'accounts/register.html', {
             'form':form
         })
-
-@login_required(login_url='login')
-def dashboardView(request):
-    return render(request, 'accounts/dashboard.html')
